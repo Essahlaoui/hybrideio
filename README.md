@@ -59,7 +59,7 @@ Le système intègre une méthode scientifique de calibration :
 ---
 
 ## ✍️ Auteur
-**Slimane Essahlaoui**  
+**CHHIBA & Essahlaoui**  
 *Étudiant en Ingénierie / PFE 2026*
 
 ---
