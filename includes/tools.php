@@ -51,6 +51,21 @@ switch ($action) {
         }
         break;
 
+    case 'delete_node':
+        // Suppression d'un node spécifique
+        $node = isset($_GET['node']) ? $conn->real_escape_string($_GET['node']) : '';
+        if (isset($_GET['pwd']) && $_GET['pwd'] === ADMIN_PASS && !empty($node)) {
+            $sql = "DELETE FROM capteurs WHERE device_id = '$node'";
+            if ($conn->query($sql)) {
+                header("Location: ../pages/settings.php?msg=Données du node $node supprimées avec succès");
+            } else {
+                header("Location: ../pages/settings.php?msg=Erreur lors de la suppression");
+            }
+        } else {
+            header("Location: ../pages/settings.php?msg=Erreur: Mot de passe incorrect ou node invalide");
+        }
+        break;
+
     case 'export':
         // Export Excel (CSV)
         header('Content-Type: text/csv; charset=utf-8');
